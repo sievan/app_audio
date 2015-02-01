@@ -1,6 +1,6 @@
 class SongsController < ApplicationController
   def index
-    render :json => all_songs
+    render :json => Song.all
   end
   def show
     puts params, params[:id].to_i
@@ -38,19 +38,30 @@ class SongsController < ApplicationController
     all_songs
     regex_song.match(text).to_s
   end
-  def all_songs
+  def all_songs_to_db
     list = []
     i = 0
+    @songs = Song.all
+    # if @songs
+    #   puts "=============", @songs, "============="
+    #   return @songs
+    # end
     Dir.foreach('db/songs') do |item|
       next if item == '.' or item == '..' or !item.end_with?('.tex')
       f = File.open("db/songs/"+item, "r")
       raw_text = f.read
-      list.push({
+      hash = {
         id: i,
         title: regex_title.match(raw_text).to_s,
-        text: regex_song.match(raw_text).to_s})
+        text: regex_song.match(raw_text).to_s}
+      list.push(hash)
       i+=1
+      add_to_db(hash)
     end
     list
+  end
+  def add_to_db(attributes)
+    @song = Song.new(attributes)
+    @song.save
   end
 end
