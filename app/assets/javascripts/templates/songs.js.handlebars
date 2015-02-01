@@ -1,6 +1,6 @@
-<div> hej hej bla bla </div>
+{{input type='text' value=filter placeholder='Låttitel'}}
 <ul id="song-list">
-  {{#each song in model}}
+  {{#each song in filteredContent}}
     <li>{{#link-to 'song' song}}{{song.title}}{{/link-to}}</li>
   {{/each}}
 </ul>
