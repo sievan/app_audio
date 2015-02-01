@@ -1,10 +1,10 @@
 class SongsController < ApplicationController
   def index
-    render :json => songs
+    render :json => all_songs
   end
   def show
     puts params, params[:id].to_i
-    render :json => {song: songs[params[:id].to_i]}
+    render :json => {song: all_songs[params[:id].to_i]}
   end
   private
   def songs
@@ -17,7 +17,7 @@ class SongsController < ApplicationController
       {
         id: 2,
         title: '...',
-        text: tex_song
+        text: "hje hej"
       },
       {
         id: 3,
@@ -26,12 +26,31 @@ class SongsController < ApplicationController
       }
     ]
   end
-  def regex
+  def regex_song
     /(?m)((?<=(\\begin{songtext})|(\\newpage)).*?(?=(\\newpage)|(\\end{songt)))/
+  end
+  def regex_title
+    /(?<=\\songtitle{).*(?=})/
   end
   def tex_song
     f = File.open("db/songs/test_song.tex", "r")
     text = f.read
-    regex.match(text).to_s
+    all_songs
+    regex_song.match(text).to_s
+  end
+  def all_songs
+    list = []
+    i = 0
+    Dir.foreach('db/songs') do |item|
+      next if item == '.' or item == '..' or !item.end_with?('.tex')
+      f = File.open("db/songs/"+item, "r")
+      raw_text = f.read
+      list.push({
+        id: i,
+        title: regex_title.match(raw_text).to_s,
+        text: regex_song.match(raw_text).to_s})
+      i+=1
+    end
+    list
   end
 end

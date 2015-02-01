@@ -1,8 +1,5 @@
 <div> hej hej bla bla </div>
 <ul id="song-list">
-
-  {{debug}}
-
   {{#each song in model}}
     <li>{{#link-to 'song' song}}{{song.title}}{{/link-to}}</li>
   {{/each}}
