@@ -37,6 +37,5 @@ namespace :db do
   task populate: :environment do
     Song.delete_all
     all_songs_to_db
-    puts 'hej'
   end
 end
