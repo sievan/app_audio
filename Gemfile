@@ -40,6 +40,7 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'pg'
 
 gem "ember-rails", "~> 0.15"
 gem "therubyracer"
