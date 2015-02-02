@@ -1,6 +1,13 @@
-{{input type='text' value=filter placeholder='Låttitel'}}
-<ul id="song-list">
+<div class="row">
+  <div class="col-md-2">
+    <label for="song-filter">Filtrera</label>
+    {{input type='text' class="form-control" id="song-filter" value=filter placeholder='Låttitel'}} 
+  </div>
+</div>
+<div class="row">
+<ul class="song-list">
   {{#each song in filteredContent}}
     <li>{{#link-to 'song' song}}{{song.title}}{{/link-to}}</li>
   {{/each}}
 </ul>
+</div>

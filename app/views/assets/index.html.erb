@@ -6,13 +6,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <h1> Sångbok </h1>
-  <h2> Bla bla bla </h2>
-  <div> Sångtesfr... </div>
-  <script type="text/x-handlebars">
-    {{#link-to 'songs'}}Songs{{/link-to}}
-    {{outlet}}
-  </script>
+  <div class="container">
+    <h1> Sångbok </h1>
+    <script type="text/x-handlebars">
+      <div class="menu row"><div class="col-xs-4">{{#link-to 'songs'}}Songs{{/link-to}}</div></div>
+      {{outlet}}
+    </script>
+  </div>
   <%= javascript_include_tag "application" %>
 </body>
 </html>
