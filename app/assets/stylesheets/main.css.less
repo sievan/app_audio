@@ -2,21 +2,42 @@
 body{
   font-family: Brawler;
 }
+
+.filter-input {
+  @media all and (max-width: 700px) { /* screen size until 500px */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 3px;
+    font-family: "Helvetica Neue";
+    border: none;
+    &:focus {
+      outline-width: 0px;
+    }
+    background-color: #eee;
+  }
+}
+
 .song-list {
   padding: 0px;
-  margin-top: 20px;
+  margin-top: 15px;
   margin-left: 15px;
   margin-right: 20px;
   list-style-type: none;
   max-width: 300px;
+  font-family: "Helvetica Neue";
   li {
     margin: 5px;
     border-bottom: 1px solid;
     border-color: #ddd;
   }
 }
+
 .container {
+  margin-top: 40px;
 }
+
 @media all and (max-width: 1200px) { /* screen size until 1200px */
     body {
         font-size: 1em; /* 1.5x default size */
