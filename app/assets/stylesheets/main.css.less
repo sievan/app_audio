@@ -1,6 +1,34 @@
 @font-face { font-family: Brawler; src: url('app/assets/Brawler.otf'); } 
 body{
-  font-family: Brawler;
+  font-family: "Helvetica Neue";
+  h1 {
+    a {
+      color: black;
+    }
+  }
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes myfirst {
+  from {top: 2000px;}
+  to {top: 0px;}
+}
+
+/* Standard syntax */
+@keyframes myfirst {
+  from {top: 2000px;}
+  to {top: 0px;}
+}
+
+@-webkit-keyframes shrink {
+  from {font-size: 5em;}
+  to {font-size: 2em;}
+}
+
+/* Standard syntax */
+@keyframes shrink {
+  from {font-size: 5em;}
+  to {font-size: 2em;}
 }
 
 .filter-input {
@@ -10,31 +38,73 @@ body{
     left: 0;
     width: 100%;
     padding: 3px;
-    font-family: "Helvetica Neue";
     border: none;
+    border-radius: 0px;
     &:focus {
       outline-width: 0px;
     }
-    background-color: #eee;
+    background-color: #E2007F;
+    &::-webkit-input-placeholder {
+       color: white;
+    }
+    &:-moz-placeholder { /* Firefox 18- */
+       color: white;
+    }
+    &::-moz-placeholder {  /* Firefox 19+ */
+       color: white;
+    }
+    &:-ms-input-placeholder {
+       color: white;
+    }
+  }
+}
+
+.home-link {
+  h1 {
+    -webkit-animation-delay: 6s; /* Chrome, Safari, Opera */
+    animation-delay: 6s;
+    -webkit-animation: shrink 1.5s ease; /* Chrome, Safari, Opera */
+    animation: shrink 1.5s ease;
   }
 }
 
 .song-list {
+  position: relative;
+  -webkit-animation-delay: 3s; /* Chrome, Safari, Opera */
+  animation-delay: 3s;
+  -webkit-animation: myfirst 1.5s ease; /* Chrome, Safari, Opera */
+  animation: myfirst 1.5s ease;
   padding: 0px;
   margin-top: 15px;
   margin-left: 15px;
   margin-right: 20px;
   list-style-type: none;
   max-width: 300px;
-  font-family: "Helvetica Neue";
   li {
-    margin: 5px;
+    position: relative;
+    // margin: 5px;
     border-bottom: 1px solid;
     border-color: #ddd;
+    // background-color: #eee;
+    padding: 4px;
+    a {
+      color: black;
+      display: inline-block;
+      width: 100%;
+      margin-left: 20px;
+    }
+  }
+  @media all and (max-width: 700px) { /* screen size until 500px */
+    max-width: 9999px;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
   }
 }
 
 .container {
+  -webkit-animation: myfirst 5s linear; /* Chrome, Safari, Opera */
+  animation: myfirst 5s linear;
   margin-top: 40px;
 }
 
