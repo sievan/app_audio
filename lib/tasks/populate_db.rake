@@ -6,12 +6,6 @@ namespace :db do
   def regex_title
     /(?<=\\songtitle{).*(?=})/
   end
-  def tex_song
-    f = File.open("db/songs/test_song.tex", "r")
-    text = f.read
-    all_songs
-    regex_song.match(text).to_s
-  end
   def add_to_db(attributes)
     @song = Song.new(attributes)
     @song.save
