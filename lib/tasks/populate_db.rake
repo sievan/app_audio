@@ -9,6 +9,9 @@ namespace :db do
   def regex_meta
     /(?m)((?<=(\\begin{songmeta})|(\\newpage)).*?(?=(\\newpage)|(\\end{songm)))/
   end
+  def double_backslash
+    /\\\\\s*/
+  end
   def add_to_db(attributes)
     @song = Song.new(attributes)
     @song.save
@@ -23,7 +26,7 @@ namespace :db do
       raw_text = f.read
       hash = {
         id: i,
-        title: regex_title.match(raw_text).to_s,
+        title: regex_title.match(raw_text).to_s.sub(double_backslash, ''),
         meta: regex_meta.match(raw_text).to_s,
         text: regex_song.match(raw_text).to_s}
       list.push(hash)
