@@ -52,6 +52,29 @@ body{
   }
 }
 
+.home-banner {
+  @media all and (max-width: 700px) { /* screen size until 500px */
+    display: inline-block;
+    vertical-align: sub;
+    font-size: 28px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-left: 20px;
+    height: 40px;
+    border: none;
+    border-radius: 0px;
+    z-index: 10000;
+    a {
+      color: white;
+      display: block;
+      width: 100%;
+    }
+    background-color: @primary-color;
+  }
+}
+
 .home-link {
   h1 {
     font-size: 40px;

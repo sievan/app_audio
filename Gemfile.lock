@@ -58,6 +58,8 @@ GEM
       handlebars-source (~> 2.0)
     erubis (2.7.0)
     execjs (2.2.2)
+    font-awesome-less (4.0.2)
+      less-rails (>= 2.4.2)
     haml (4.0.6)
       tilt
     handlebars-source (2.0.0)
@@ -153,6 +155,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
   ember-rails (~> 0.15)
+  font-awesome-less
   haml
   jbuilder (~> 2.0)
   jquery-rails
