@@ -1,5 +1,6 @@
 Songbook.Song = DS.Model.extend({
   title: DS.attr('string'),
+  meta: DS.attr('string'),
   text: DS.attr('string'),
   created_at: DS.attr('date'),
   updated_at: DS.attr('date')
