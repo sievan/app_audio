@@ -12,9 +12,18 @@ namespace :db do
   def double_backslash
     /\\\\\s*/
   end
+  def quotes
+    /\\textquotedblleft{}|\\textquotedblright{}/
+  end
+  def dots
+    /\\ldots/
+  end
   def add_to_db(attributes)
     @song = Song.new(attributes)
     @song.save
+  end
+  def sanitize(string)
+    string.gsub(dots, "...").gsub(quotes, '"').gsub(double_backslash, '')
   end
   def all_songs_to_db
     list = []
@@ -26,9 +35,9 @@ namespace :db do
       raw_text = f.read
       hash = {
         id: i,
-        title: regex_title.match(raw_text).to_s.sub(double_backslash, ''),
-        meta: regex_meta.match(raw_text).to_s,
-        text: regex_song.match(raw_text).to_s}
+        title: sanitize(regex_title.match(raw_text).to_s),
+        meta: sanitize(regex_meta.match(raw_text).to_s),
+        text: sanitize(regex_song.match(raw_text).to_s)}
       list.push(hash)
       i+=1
       add_to_db(hash)
