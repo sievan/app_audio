@@ -111,11 +111,21 @@ body{
   max-width: 300px;
   li {
     position: relative;
-    // margin: 5px;
     border-bottom: 1px solid;
     border-color: #ddd;
-    // background-color: #eee;
     padding: 4px;
+    &:active {
+      background-color: @primary-color;
+      a {
+        text-decoration: none;
+        color: white;
+      }
+    }
+    &:hover {
+      a {
+        text-decoration: none;
+      }
+    }
     a {
       color: black;
       display: inline-block;
