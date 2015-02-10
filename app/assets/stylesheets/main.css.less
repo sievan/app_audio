@@ -8,6 +8,7 @@ body{
 }
 
 @primary-color: #45c2f9;
+@primary-color-lighter: rgba(69, 194, 249, 0.25);
 
 /* Chrome, Safari, Opera */
 @-webkit-keyframes slideup {
@@ -115,10 +116,9 @@ body{
     border-color: #ddd;
     padding: 4px;
     &:active {
-      background-color: @primary-color;
+      background-color: @primary-color-lighter;
       a {
         text-decoration: none;
-        color: white;
       }
     }
     &:hover {
