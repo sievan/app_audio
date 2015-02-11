@@ -22,7 +22,7 @@ body{
   to {top: 0px;}
 }
 
-.filter-input{
+.filter-input > input{
     transition: all 0.2s;
     -moz-transition: all 0.2s; /* Firefox 4 */
     -webkit-transition: all 0.2s; /* Safari and Chrome */
@@ -31,33 +31,38 @@ body{
 
 .filter-input {
   @media all and (max-width: 700px) { /* screen size until 500px */
-    font-size: 20px;
-    color: white;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px;
-    border: none;
-    border-radius: 0px;
-    z-index: 10000;
-    &:focus {
-      outline-width: 0px;
-      font-size: 26px;
-      height: 50px;
+    .input-group-addon {
+      border-radius: 0px;
     }
-    background-color: @primary-color;
-    &::-webkit-input-placeholder {
-       color: white;
-    }
-    &:-moz-placeholder { /* Firefox 18- */
-       color: white;
-    }
-    &::-moz-placeholder {  /* Firefox 19+ */
-       color: white;
-    }
-    &:-ms-input-placeholder {
-       color: white;
+    input {
+      font-size: 20px;
+      color: white;
+      padding: 20px;
+      border: none;
+      border-radius: 0px;
+      z-index: 10000;
+      &:focus {
+        outline-width: 0px;
+        font-size: 26px;
+        height: 50px;
+      }
+      background-color: @primary-color;
+      &::-webkit-input-placeholder {
+         color: white;
+      }
+      &:-moz-placeholder { /* Firefox 18- */
+         color: white;
+      }
+      &::-moz-placeholder {  /* Firefox 19+ */
+         color: white;
+      }
+      &:-ms-input-placeholder {
+         color: white;
+      }
     }
   }
 }
