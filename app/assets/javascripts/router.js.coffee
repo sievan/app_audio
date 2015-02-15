@@ -10,11 +10,9 @@ Songbook.ApplicationRoute = Ember.Route.extend(model: ->
 )
 
 Songbook.SongsRoute = Ember.Route.extend(model: ->
-  console.log('r 1')
   @store.all 'song'
 )
 
 Songbook.SongRoute = Ember.Route.extend(model: (params)->
-  console.log('r 2')
   @store.find 'song', params.song_id
 )
