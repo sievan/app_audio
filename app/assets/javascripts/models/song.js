@@ -6,7 +6,7 @@ Songbook.Song = DS.Model.extend({
   updated_at: DS.attr('date')
 });
 
-Handlebars.registerHelper("debug", function(optionalValue) {
+Ember.HTMLBars.makeBoundHelper("debug", function(optionalValue) {
   console.log("Current Context");
   console.log("====================");
   console.log(this);

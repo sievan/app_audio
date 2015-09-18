@@ -6,11 +6,11 @@ Songbook.Router.map ()->
   @resource('songs', path: '/')
 
 Songbook.ApplicationRoute = Ember.Route.extend(model: ->
-  @store.find 'song'
+  @store.findAll 'song'
 )
 
 Songbook.SongsRoute = Ember.Route.extend(model: ->
-  @store.all 'song'
+  @store.peekAll 'song'
 )
 
 Songbook.SongRoute = Ember.Route.extend(model: (params)->

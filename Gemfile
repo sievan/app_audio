@@ -3,7 +3,9 @@ source "https://rubygems.org"
 ruby File.read(".ruby-version").strip
 
 gem "rails", "4.1.8"
-gem "ember-rails", "~> 0.15"
+gem "ember-rails"
+gem "ember-source", '~> 1.10.0'
+gem "ember-data-source", '~> 1.13'
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "therubyracer"
 gem "twitter-bootstrap-rails"
@@ -14,7 +16,6 @@ gem "jbuilder", "~> 2.0"
 gem "jquery-rails"
 gem "pg"
 gem "sass-rails", "~> 4.0.3"
-gem "turbolinks"
 gem "uglifier", ">= 1.3.0"
 
 group :production do
