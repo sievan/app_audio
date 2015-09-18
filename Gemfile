@@ -4,7 +4,7 @@ ruby File.read(".ruby-version").strip
 
 gem "rails", "4.1.8"
 gem "ember-rails"
-gem "ember-source", '1.11.0.1'
+gem "ember-source", '1.12.1'
 gem "ember-data-source", '~> 1.13'
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "therubyracer"
